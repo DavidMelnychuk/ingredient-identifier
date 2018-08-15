@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "388821530970",
+    "firebase_url": "https://rare-chiller-213422.firebaseio.com",
+    "project_id": "rare-chiller-213422",
+    "storage_bucket": "rare-chiller-213422.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388821530970:android:ece4ff18a9d26f86",
+        "android_client_info": {
+          "package_name": "app.jade.ingredient_identifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388821530970-jsqm9b972s2380gqrehlstabo6dls01o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRR5pNRrUK_cHp62ROVyOQtMule-eDgps"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
