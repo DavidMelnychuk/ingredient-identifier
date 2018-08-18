@@ -1,6 +1,7 @@
 package app.jade.ingredient_identifier;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
@@ -11,6 +12,7 @@ import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -261,7 +263,11 @@ public class TakePicActivity extends AppCompatActivity {
     private File createImageFile(File galleryFolder) throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
         String imageFileName = "image_" + timeStamp + "_";
-        return File.createTempFile(imageFileName, ".jpg", galleryFolder);
+        File newImageFile = File.createTempFile(imageFileName, ".jpg", galleryFolder);
+        //Scan media in order to update gallery after a photo is taken
+        Intent scanFileIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(newImageFile));
+        sendBroadcast(scanFileIntent);
+        return newImageFile;
     }
 
     private void lock() {
@@ -279,4 +285,13 @@ public class TakePicActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+//    private void scanMedia(String path) {
+//        File file = new File(path);
+//        Uri uri = Uri.fromFile(file);
+//        Intent scanFileIntent = new Intent(
+//                Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri);
+//        sendBroadcast(scanFileIntent);
+//    }
+
 }
