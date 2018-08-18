@@ -35,8 +35,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
-public class TakePicActivity extends AppCompatActivity {
-    private static final String TAG = "TakePicActivity";
+public class TakePhotoActivity extends AppCompatActivity {
+    private static final String TAG = "TakePhotoActivity";
     private static final int CAMERA_REQUEST_CODE = 1;
     private CameraManager cameraManager;
     private int cameraFacing;
@@ -56,7 +56,7 @@ public class TakePicActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_take_pic);
+        setContentView(R.layout.activity_take_photo);
         textureView = findViewById(R.id.texture_view_camera_preview);
 
         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA,
