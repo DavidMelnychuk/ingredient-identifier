@@ -18,7 +18,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,6 +25,7 @@ import android.util.Size;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
+import android.widget.Button;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -113,7 +113,8 @@ public class TakePicActivity extends AppCompatActivity {
 
         createImageGallery();
 
-        FloatingActionButton takePhotoBtn = findViewById(R.id.fab_take_photo);
+        Button takePhotoBtn = findViewById(R.id.fab_take_photo);
+//        FloatingActionButton takePhotoBtn = findViewById(R.id.fab_take_photo);
         takePhotoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
