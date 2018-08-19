@@ -52,6 +52,7 @@ public class TakePhotoActivity extends AppCompatActivity {
     private CaptureRequest.Builder captureRequestBuilder;
     private CaptureRequest captureRequest;
     private File galleryFolder;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,15 +119,20 @@ public class TakePhotoActivity extends AppCompatActivity {
         takePhotoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lock();
+//                lock();
                 FileOutputStream outputPhoto = null;
                 try {
                     outputPhoto = new FileOutputStream(createImageFile(galleryFolder));
+
                     textureView.getBitmap().compress(Bitmap.CompressFormat.PNG, 100, outputPhoto);
+
+                    Intent intent = IdentifyPhotoActivity.makeLaunchIntent(TakePhotoActivity.this, imageUri);
+                    startActivity(intent);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    unlock();
+//                    unlock();
                     try {
                         if (outputPhoto != null) {
                             outputPhoto.close();
@@ -266,7 +272,8 @@ public class TakePhotoActivity extends AppCompatActivity {
         String imageFileName = "image_" + timeStamp + "_";
         File newImageFile = File.createTempFile(imageFileName, ".jpg", galleryFolder);
         //Scan media in order to update gallery after a photo is taken
-        Intent scanFileIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(newImageFile));
+        imageUri = Uri.fromFile(newImageFile);
+        Intent scanFileIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageUri);
         sendBroadcast(scanFileIntent);
         return newImageFile;
     }
