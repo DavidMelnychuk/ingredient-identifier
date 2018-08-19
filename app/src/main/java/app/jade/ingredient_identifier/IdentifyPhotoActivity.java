@@ -15,8 +15,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.cloud.label.FirebaseVisionCloudLabel;
-import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.cloud.label.FirebaseVisionCloudLabelDetector;
+import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +43,7 @@ public class IdentifyPhotoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         mListView =  findViewById(R.id.lv_list_of_labels);
+        imageLabel = findViewById(R.id.tv_image_label);
 
 
         FirebaseVisionCloudLabelDetector detector = FirebaseVision.getInstance().getVisionCloudLabelDetector();
@@ -55,6 +56,7 @@ public class IdentifyPhotoActivity extends AppCompatActivity {
 
                         for (FirebaseVisionCloudLabel label : firebaseVisionLabels) {
                             String text = label.getLabel();
+                            imageLabel.setText(text);
                             String entityId = label.getEntityId();
                             float confidence = label.getConfidence();
                             mFirebaseVisionCloudLabelsStrings.add(text + "---" + entityId + "---" + confidence);
