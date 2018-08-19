@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ingredient-identifier</string>
+    <string name="view_recipes">View Recipes</string>
 </resources>
