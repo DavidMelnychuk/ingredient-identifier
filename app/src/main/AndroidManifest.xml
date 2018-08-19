@@ -28,7 +28,8 @@
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="label" />
 
-        <activity android:name=".IdentifyPhotoActivity"></activity>
+        <activity android:name=".IdentifyPhotoActivity" />
+        <activity android:name=".GetRecipesActivity"></activity>
     </application>
 
 </manifest>

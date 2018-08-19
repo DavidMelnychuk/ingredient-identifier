@@ -29,11 +29,12 @@ public class IdentifyPhotoActivity extends AppCompatActivity {
 
     private static final String IMAGE_URI = "imageUri";
     private Uri imageUri;
-    private TextView imageLabel;
+    private TextView imageLabelTextView;
     private FirebaseVisionImage image;
     private ImageView capturedImage;
     private Button viewRecipesBtn;
     private ProgressBar mProgressBar;
+    private String imageLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class IdentifyPhotoActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        imageLabel = findViewById(R.id.tv_image_label);
+        imageLabelTextView = findViewById(R.id.tv_image_label);
         capturedImage = findViewById(R.id.iv_image);
         viewRecipesBtn = findViewById(R.id.btn_recipes);
         mProgressBar = findViewById(R.id.progressBar);
@@ -60,12 +61,15 @@ public class IdentifyPhotoActivity extends AppCompatActivity {
 
                         FirebaseVisionCloudLabel labelWithHighestConfidence = firebaseVisionLabels.get(0);
 
+                        imageLabel = labelWithHighestConfidence.getLabel();
 
-                        imageLabel.setText(labelWithHighestConfidence.getLabel() + ", Confidence: " + (100 * labelWithHighestConfidence.getConfidence()) + "%");
+                        imageLabelTextView.setText(imageLabel + ", Confidence: " + (100 * labelWithHighestConfidence.getConfidence()) + "%");
 
                         setUpImageView();
 
                         updateUI();
+
+                        setUpViewRecipesButton();
 
 
                     }
@@ -89,9 +93,22 @@ public class IdentifyPhotoActivity extends AppCompatActivity {
 
     private void updateUI() {
         mProgressBar.setVisibility(View.GONE);
-        imageLabel.setVisibility(View.VISIBLE);
+        imageLabelTextView.setVisibility(View.VISIBLE);
         capturedImage.setVisibility(View.VISIBLE);
         viewRecipesBtn.setVisibility(View.VISIBLE);
+    }
+
+    private void setUpViewRecipesButton() {
+        viewRecipesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent = GetRecipesActivity.makeLaunchIntent(IdentifyPhotoActivity.this, imageLabel);
+                startActivity(intent);
+
+            }
+        });
     }
 
 
