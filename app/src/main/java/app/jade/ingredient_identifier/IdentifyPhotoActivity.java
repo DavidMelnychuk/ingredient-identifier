@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -102,11 +101,8 @@ public class IdentifyPhotoActivity extends AppCompatActivity {
         viewRecipesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 Intent intent = GetRecipesActivity.makeLaunchIntent(IdentifyPhotoActivity.this, imageLabel);
                 startActivity(intent);
-
             }
         });
     }
