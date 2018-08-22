@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -20,12 +22,15 @@ public class GetRecipesActivity extends AppCompatActivity {
     private static final String IMAGE_LABEL = "imageLabel";
     private String ingredient;
     private ArrayList<Recipe> recipes = new ArrayList<>();
+    private RecyclerView recipeListRecyclerView;
+    private RecipeListAdapter recipeListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_recipes);
 
+        recipeListRecyclerView = (RecyclerView) findViewById(R.id.rv_recipe_list);
         ingredient = getIntent().getStringExtra(IMAGE_LABEL);
 
 
@@ -42,10 +47,16 @@ public class GetRecipesActivity extends AppCompatActivity {
                 GetRecipesActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        for (Recipe recipe : recipes) {
-                            Toast.makeText(GetRecipesActivity.this, recipe.toString()
-                                    , Toast.LENGTH_SHORT).show();
-                        }
+
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(GetRecipesActivity.this);
+                        recipeListRecyclerView.setLayoutManager(layoutManager);
+                        recipeListAdapter = new RecipeListAdapter(GetRecipesActivity.this, recipes);
+                        recipeListRecyclerView.setAdapter(recipeListAdapter);
+//                        for (Recipe recipe : recipes) {
+//                            Toast.makeText(GetRecipesActivity.this, recipe.toString()
+//                                    , Toast.LENGTH_SHORT).show();
+//                        }
+
                     }
                 });
             }

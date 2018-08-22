@@ -3,11 +3,15 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="24dp">
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    >
 
     <ImageView
         android:layout_width="130dp"
-        android:layout_height="100dp"
+        android:layout_height="110dp"
         android:id="@+id/iv_recipe_image"
         android:scaleType="centerCrop"/>
 
@@ -16,7 +20,7 @@
         android:layout_width="match_parent"
         android:background="#ffffff"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"

@@ -68,8 +68,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter {
 
         void bind(Recipe recipe) {
             recipeName.setText(recipe.getRecipeName());
-            recipeRating.setText(recipe.getRecipeName());
-            recipeSource.setText(recipe.getRecipeName());
+            recipeRating.setText("Rating: " + recipe.getRating() + " out of 5");
+            recipeSource.setText("Made by " + recipe.getSource());
             Picasso.get().load(recipe.getImageUrl()).into(recipeImage);
         }
     }

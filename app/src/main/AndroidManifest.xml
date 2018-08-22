@@ -29,8 +29,7 @@
             android:value="label" />
 
         <activity android:name=".ui.IdentifyPhotoActivity" />
-        <activity android:name=".ui.GetRecipesActivity"
-            android:theme="@style/RecipeListTheme"></activity>
+        <activity android:name=".ui.GetRecipesActivity"></activity>
     </application>
 
 </manifest>
