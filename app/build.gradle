@@ -20,6 +20,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:support-annotations:27.1.1'
     implementation 'com.android.support:design:27.1.1'
@@ -30,6 +31,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-ml-vision:17.0.0'
     implementation 'com.google.firebase:firebase-ml-vision-image-label-model:15.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.okhttp3:okhttp:3.2.0'
     implementation 'se.akerfeldt:okhttp-signpost:1.1.0'
 }

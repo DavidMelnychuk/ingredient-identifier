@@ -1,4 +1,4 @@
-package app.jade.ingredient_identifier;
+package app.jade.ingredient_identifier.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +23,8 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+import app.jade.ingredient_identifier.R;
 
 public class IdentifyPhotoActivity extends AppCompatActivity {
 

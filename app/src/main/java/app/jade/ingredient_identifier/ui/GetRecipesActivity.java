@@ -1,4 +1,4 @@
-package app.jade.ingredient_identifier;
+package app.jade.ingredient_identifier.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import app.jade.ingredient_identifier.R;
 import app.jade.ingredient_identifier.model.Recipe;
 import app.jade.ingredient_identifier.services.Yummly;
 import okhttp3.Call;

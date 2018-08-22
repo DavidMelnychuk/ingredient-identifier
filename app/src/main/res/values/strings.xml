@@ -4,6 +4,9 @@
     <string name="yummly_api_key">d2e2064339d1ce55e5075c8008333792</string>
     <string name="yummly_app_id">f6ccf80f</string>
     <string name="yummly_base_url">http://api.yummly.com/v1/api/recipes?</string>
+    <string name="source">Source</string>
+    <string name="rating">Rating</string>
+    <string name="recipe_name">Recipe Name</string>
     <!--public static final String YUMMLY_API_KEY = BuildConfig.YUMMLY_API_KEY;-->
     <!--public static final String YUMMLY_APP_ID = BuildConfig.YUMMLY_APP_ID;-->
     <!--public static final String YUMMLY_BASE_URL = "http://api.yummly.com/v1/api/recipes?";-->
