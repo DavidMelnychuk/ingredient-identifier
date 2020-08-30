@@ -1,4 +1,4 @@
-package app.jade.ingredient_identifier;
+package app.jade.ingredient_identifier.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,6 +34,8 @@ import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
+
+import app.jade.ingredient_identifier.R;
 
 public class TakePhotoActivity extends AppCompatActivity {
     private static final String TAG = "TakePhotoActivity";
